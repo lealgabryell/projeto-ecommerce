@@ -2,12 +2,12 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Itens{
-	ArrayList<Item> produtos = new ArrayList<Item>();
+public class itens{
+	ArrayList<item> produtos = new ArrayList<item>();
 	
 //	public boolean codigoExiste(long cod) {
 //		boolean verdade = false;
-//		for (Item item : produtos) {
+//		for (item item : produtos) {
 //			if (item.getCodigo() == cod) {
 //				verdade = true;
 //			}
@@ -16,7 +16,7 @@ public class Itens{
 //	}
 	public int codigoExiste(long cod) {
 		int verdade = 0;
-		for (Item item : produtos) {
+		for (item item : produtos) {
 			if ((long)item.getCodigo() == (long) cod) {
 				verdade += 1;
 			}
@@ -24,9 +24,9 @@ public class Itens{
 		return verdade;
 	}
 	
-	public Item findCod(long cod) {
-		Item selecionado = null;
-		for (Item item : produtos) {
+	public item findCod(long cod) {
+		item selecionado = null;
+		for (item item : produtos) {
 			if (item.getCodigo() == cod) {
 				selecionado = item;
 			}
@@ -43,14 +43,14 @@ public class Itens{
 		}
 	}
 	
-	public void cadastrar(Item i) {
+	public void cadastrar(item i) {
 		produtos.add(i);
 		System.out.printf("%s cadastrado com sucesso!\n", i.getNome());
 	}
 	
 	public void adicionar(long cod, int adiciona) {
 		if (codigoExiste(cod) > 0) {
-			Item selecionado = findCod(cod);
+			item selecionado = findCod(cod);
 			selecionado.addEstoque(adiciona);
 			System.out.printf("Estoque do %s foi adicionado com sucesso!\n", selecionado.getNome());
 		}else {
@@ -60,14 +60,14 @@ public class Itens{
 	}
 	public void remover(long cod) {
 		if (codigoExiste(cod) > 0) {
-			Item selecionado = findCod(cod);
+			item selecionado = findCod(cod);
 			produtos.remove(selecionado);
 		}else {
 			System.out.println("O código não existe!");
 		}
 	}
 
-	public ArrayList<Item> getProdutos() {
+	public ArrayList<item> getProdutos() {
 		return produtos;
 	}
 

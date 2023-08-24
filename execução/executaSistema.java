@@ -1,22 +1,22 @@
-package executaSistema;
+package execução;
 
 //import java.util.Scanner;
 
-import classes.Item;
-import classes.Itens;
+import classes.item;
+import classes.itens;
 
-public class App {
+public class executaSistema {
 	public static void main(String[] args) {
-		Itens i = new Itens();
+		itens i = new itens();
 		// erro no código quando ele está muito grande. Como resolver?
-		// Testando listagem da Classe Itens:
+		// Testando listagem da Classe itens:
 		
-		i.cadastrar(new Item("Corolla 2023", 20992982));
-		i.cadastrar(new Item("Corolla 2021", 20992980));
-		i.cadastrar(new Item("Civic 2023", 1239));
-		i.cadastrar(new Item("Nivus 2023", 8833));
-		i.cadastrar(new Item("Hilux 2023", 9923));
-		i.cadastrar(new Item("i30   2023", 99233));
+		i.cadastrar(new item("Corolla 2023", 20992982));
+		i.cadastrar(new item("Corolla 2021", 20992980));
+		i.cadastrar(new item("Civic 2023", 1239));
+		i.cadastrar(new item("Nivus 2023", 8833));
+		i.cadastrar(new item("Hilux 2023", 9923));
+		i.cadastrar(new item("i30   2023", 99233));
 		i.adicionar(1239, 2);
 		i.adicionar(20992982, 1);
 		i.adicionar(8833, 2);

@@ -1,17 +1,17 @@
 package classes;
 
-public class Item {
+public class item {
 	private String nome;
 	private long codigo;
 	private int estoque;
 	
-	public Item(String nome, long cod){
+	public item(String nome, long cod){
 		this.setNome(nome);
 		this.setCodigo(cod);
 		this.setEstoque(0);
 	}
 	
-	public Item(Item i) {
+	public item(item i) {
 		this.setNome(i.getNome());
 		this.setCodigo(i.getCodigo());
 		this.setEstoque(i.getEstoque());
