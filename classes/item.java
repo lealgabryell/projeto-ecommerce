@@ -5,10 +5,10 @@ public class Item {
 	private long codigo;
 	private int estoque;
 	
-	public Item(String nome, long cod, int estoque){
+	public Item(String nome, long cod){
 		this.setNome(nome);
 		this.setCodigo(cod);
-		this.setEstoque(estoque);
+		this.setEstoque(0);
 	}
 	
 	public Item(Item i) {
@@ -17,26 +17,29 @@ public class Item {
 		this.setEstoque(i.getEstoque());
 	}
 	
-	public String getNome() {
+	protected String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	protected void setNome(String nome) {
 		this.nome = nome;
 	}
-	public long getCodigo() {
+	protected long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(long codigo) {
+	protected void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
-	public int getEstoque() {
+	protected int getEstoque() {
 		return estoque;
 	}
-	public void setEstoque(int estoque) {
+	protected void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
-	public void addEstoque(int n) {
-		this.setEstoque(getEstoque());
-	}
 	
+	protected void addEstoque(int n) {
+		this.setEstoque(getEstoque() + n);
+	}
+	protected void venderEstoque(int n) {
+		this.setEstoque(getEstoque() - n);
+	}
 }
