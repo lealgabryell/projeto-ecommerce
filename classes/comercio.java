@@ -89,9 +89,7 @@ private itens produtos;
 		}
 		else
 		{
-		for(int i =0; i < produtos.getProdutos().size(); i++){
-			System.out.println(produtos.getProdutos(i));
-		}
+			produtos.listar();
 		}
 	}
 	public void adicionar() {
