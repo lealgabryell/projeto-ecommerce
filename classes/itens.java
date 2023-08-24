@@ -2,51 +2,64 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Itens {
+public class Itens{
 	ArrayList<Item> produtos = new ArrayList<Item>();
 	
-	public boolean codigoExiste(long cod) {
-		Item selecionado = new Item(null);
+//	public boolean codigoExiste(long cod) {
+//		boolean verdade = false;
+//		for (Item item : produtos) {
+//			if (item.getCodigo() == cod) {
+//				verdade = true;
+//			}
+//		}
+//		return verdade;
+//	}
+	public int codigoExiste(long cod) {
+		int verdade = 0;
 		for (Item item : produtos) {
-			if (item.getCodigo() == cod) {
-				selecionado = new Item(item);
+			if ((long)item.getCodigo() == (long) cod) {
+				verdade += 1;
 			}
 		}
-		boolean verdade = selecionado != null ? true:false;
 		return verdade;
 	}
 	
 	public Item findCod(long cod) {
-		Item selecionado = new Item(null);
+		Item selecionado = null;
 		for (Item item : produtos) {
 			if (item.getCodigo() == cod) {
-				selecionado = new Item(item);
+				selecionado = item;
 			}
 		}
 		return selecionado;
 	}
 	public void listar() {
-		for (Item item : produtos) {
-			System.out.printf("%s (%l | %d)",item.getNome(),item.getCodigo(),item.getEstoque());
+		for (int i = 0; i < produtos.size();i++) {
+			System.out.printf("%d) %12s (cód.: %10d | estoque: %4d)\n",
+					i+1,
+					produtos.get(i).getNome(),
+					produtos.get(i).getCodigo(),
+					produtos.get(i).getEstoque());
 		}
 	}
 	
 	public void cadastrar(Item i) {
 		produtos.add(i);
-		System.out.printf("%s cadastrado com sucesso!", i.getNome());
+		System.out.printf("%s cadastrado com sucesso!\n", i.getNome());
 	}
+	
 	public void adicionar(long cod, int adiciona) {
-		if (codigoExiste(cod) == true) {
+		if (codigoExiste(cod) > 0) {
 			Item selecionado = findCod(cod);
 			selecionado.addEstoque(adiciona);
-			System.out.printf("Estoque do %s foi adicionado com sucesso!", selecionado.getNome());
+			System.out.printf("Estoque do %s foi adicionado com sucesso!\n", selecionado.getNome());
 		}else {
 			System.out.println("O código não existe!");
 		}
 		
 	}
 	public void remover(long cod) {
-		if (codigoExiste(cod) == true) {
+		if (codigoExiste(cod) > 0) {
 			Item selecionado = findCod(cod);
 			produtos.remove(selecionado);
 		}else {
