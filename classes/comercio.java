@@ -31,7 +31,7 @@ public class comercio {
 		}
 	}
 	catch(InputMismatchException e){
-		System.out.println("ERROR002: -----------A escolha da opcao do menu deve ser numerica (ex.: 1, 2, 3, etc.).-----------")
+		System.out.println("ERROR002: -----------A escolha da opcao do menu deve ser numerica (ex.: 1, 2, 3, etc.).-----------");
 	}
 	}
 	public boolean codigoExiste(long cod) {
